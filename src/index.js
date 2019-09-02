@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+// 1 引入 字体图标
+import "./assets/fonts/iconfont.css";
+import "./App.css";
 
-import store from "./store";
-// 1 引入react和redux 连接器
-import { Provider } from "react-redux";
 
-ReactDOM.render(<Provider store={store}> <App /> </Provider>, document.getElementById('root'));
+
+ReactDOM.render(<App />, document.getElementById('root'));
+

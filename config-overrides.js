@@ -1,8 +1,8 @@
-const { override, addBabelPlugins } = require('customize-cra');
+const { override, fixBabelImports } = require('customize-cra');
+
 module.exports = override(
-  ...addBabelPlugins(
-    [
-      "styled-jsx/babel"
-    ]
-  )
-)
+  fixBabelImports('import', {
+    libraryName: 'antd-mobile',
+    style: 'css',
+  }),
+);
