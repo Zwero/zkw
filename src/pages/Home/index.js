@@ -3,6 +3,7 @@ import { axios } from '../../utils/requset'
 import styles from "./index.module.scss";
 import { Carousel } from 'antd-mobile';
 import { REACT_APP_API_URL } from "../../utils/urls";
+import SearchInput from "../../components/SearchInput";
 
 import nav1 from "../../assets/images/nav-1.png";
 import nav2 from "../../assets/images/nav-2.png";
@@ -28,32 +29,35 @@ class index extends Component {
     axios.get("/home/swiper")
       .then(res => {
         this.setState({ swiperList: res.body });
-        console.log(res);
+        // console.log(res);
       })
 
     // 2 租房小组
     axios.get("/home/groups")
       .then(res => {
         this.setState({ homeGroups: res.body });
-        console.log(res, '租房小组');
+        // console.log(res, '租房小组');
       })
 
     // 3 资讯
     axios.get("/home/news")
       .then(res => {
         this.setState({ news: res.body });
-        console.log(res, '这是咨询');
+        // console.log(res, '这是咨询');
       })
   }
 
   render() {
     const { swiperList } = this.state;
-    console.log(REACT_APP_API_URL);
+    // console.log(REACT_APP_API_URL);
     return (
       <Fragment>
         <div className={styles.hk_home}>
           {/* 轮播图 开始 */}
           <div className={styles.home_swiper}>
+            <div className={styles.home_search_input}>
+              <SearchInput />
+            </div>
             {swiperList.length && <Carousel
               autoplay
               infinite
@@ -134,6 +138,7 @@ class index extends Component {
             </div>
           </div>
           {/* 最新资讯 结束*/}
+
 
 
         </div>
